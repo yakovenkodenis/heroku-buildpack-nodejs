@@ -122,6 +122,8 @@ log_project_info "$BUILD_DIR"
 ### Compile
 
 create_env() {
+  ls
+  pwd
   monitor "creating /var/lib/apt/lists/partial directory" mkdir -p /var/lib/apt/lists/partial
   monitor "install-postgresql-dependencies" apt-get update && apt-get -y install gcc git libpq-dev postgresql-11 build-essential ruby ruby-dev ruby-bundler ruby-json
   monitor "install gems for pgsync" gem install bundler:2.2.21 json:2.5.1 etc:1.2.0 parallel:1.20.1 slop:4.9.1 tty-cursor:0.7.1 tty-spinner:0.9.3 pg:1.0.0 && gem install --local ./api/pgsync/pgsync-0.6.7.gem
